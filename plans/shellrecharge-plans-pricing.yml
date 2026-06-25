@@ -1,0 +1,58 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: ShellRecharge
+providerId: shellrecharge
+created: '2026-06-21'
+modified: '2026-06-21'
+reconciled: false
+tags:
+- EV Charging
+- Electric Vehicles
+- Mobility
+- Charge Points
+- OCPI
+- Energy
+- Plans
+description: >-
+  ShellRecharge does not publish self-serve, public API pricing. The EV-Platform
+  APIs on the Shell Developer Portal (EV Public Locations, EV Public Charge
+  Sessions, and the OCPI 2.2.1 operator API) are partner-gated: access is granted
+  through a commercial agreement with Shell, and the underlying charging is billed
+  via per-kWh / per-session tariffs and roaming arrangements rather than per-API-call
+  rates. There are no documented Free / Developer / Enterprise API tiers. Pricing
+  is sales-led and must be obtained from Shell. Values below are not reconciled.
+notes: >-
+  Pricing is sales-led and was not publicly documented at the time of cataloging.
+  Confirm commercial terms, onboarding, and any usage fees directly with Shell
+  during reconciliation.
+sources:
+- https://developer.shell.com/api-catalog
+- https://shellrecharge.com
+plans:
+- id: shellrecharge-partner
+  name: Partner / Commercial Agreement
+  type: enterprise
+  description: >-
+    Partner and charge point operator access to the ShellRecharge EV-Platform
+    and OCPI APIs, provisioned via a Shell commercial agreement. Onboarding,
+    credentials, and any fees are negotiated with Shell. Charging itself is
+    billed through per-kWh / per-session tariffs and roaming settlement.
+  entries:
+  - label: Partner API Access
+    name: partner_access
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: EV Public Locations API
+  - name: EV Public Charge Sessions API
+  - name: OCPI API (Locations, Sessions, Tariffs, Tokens, CDRs)
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

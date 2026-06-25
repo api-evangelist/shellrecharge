@@ -1,0 +1,166 @@
+{
+  "info": {
+    "_postman_id": "8f3c1d2a-5b6e-4a91-9c4d-7e2a1f0b3c45",
+    "name": "ShellRecharge EV Platform API",
+    "description": "Partner-gated EV charging APIs for the ShellRecharge (formerly NewMotion) network, published on the Shell Developer Portal. Covers documented EV Public Locations and EV Public Charge Sessions endpoints. All requests require OAuth 2.0 client credentials (bearer token) plus API client credentials. Base host: https://api.shell.com (test: https://api-test.shell.com).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Locations",
+      "description": "EV Public Locations API - public Shell Recharge charging locations and roaming partner locations.",
+      "item": [
+        {
+          "name": "List all locations",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "RequestId", "value": "{{requestId}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/ev/v2/locations",
+              "host": ["{{baseUrl}}"],
+              "path": ["ev", "v2", "locations"]
+            },
+            "description": "Get the list of all public Shell Recharge locations and their details."
+          },
+          "response": []
+        },
+        {
+          "name": "Get location by uid",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "RequestId", "value": "{{requestId}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/ev/v2/locations/{{uid}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["ev", "v2", "locations", "{{uid}}"]
+            },
+            "description": "Get the details of a specific location by its unique identifier."
+          },
+          "response": []
+        },
+        {
+          "name": "Get nearby locations",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "RequestId", "value": "{{requestId}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/ev/v2/locations/nearby?latitude=52.379&longitude=4.900",
+              "host": ["{{baseUrl}}"],
+              "path": ["ev", "v2", "locations", "nearby"],
+              "query": [
+                { "key": "latitude", "value": "52.379" },
+                { "key": "longitude", "value": "4.900" }
+              ]
+            },
+            "description": "Get the list of locations near a latitude and longitude."
+          },
+          "response": []
+        },
+        {
+          "name": "Get location markers",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "RequestId", "value": "{{requestId}}" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/ev/v2/locations/markers",
+              "host": ["{{baseUrl}}"],
+              "path": ["ev", "v2", "locations", "markers"]
+            },
+            "description": "Get the list of location markers for a set of map bounds and zoom level."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Charge Sessions",
+      "description": "EV Public Charge Sessions API - start, stop, and track charging at public Shell Recharge locations.",
+      "item": [
+        {
+          "name": "Start charge session",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"cardNumber\": \"<string>\",\n  \"evseId\": \"<string>\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/mobility-ev-api/v1/api/charge-sessions/start",
+              "host": ["{{baseUrl}}"],
+              "path": ["mobility-ev-api", "v1", "api", "charge-sessions", "start"]
+            },
+            "description": "Start a charging session on an EVSE using an EV charge card number and the EVSE ID."
+          },
+          "response": []
+        },
+        {
+          "name": "Retrieve charge session",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/mobility-ev-api/v1/api/charge-sessions/retrieve/{{sessionId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["mobility-ev-api", "v1", "api", "charge-sessions", "retrieve", "{{sessionId}}"]
+            },
+            "description": "Retrieve the current status and details of a charging session."
+          },
+          "response": []
+        },
+        {
+          "name": "Stop charge session",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/mobility-ev-api/v1/api/charge-sessions/stop/{{sessionId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["mobility-ev-api", "v1", "api", "charge-sessions", "stop", "{{sessionId}}"]
+            },
+            "description": "Stop an active charging session."
+          },
+          "response": []
+        },
+        {
+          "name": "List active charge sessions",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/mobility-ev-api/v1/api/charge-sessions/active",
+              "host": ["{{baseUrl}}"],
+              "path": ["mobility-ev-api", "v1", "api", "charge-sessions", "active"]
+            },
+            "description": "Retrieve the list of active charging sessions for a user (by EMAId)."
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      { "key": "token", "value": "{{bearerToken}}", "type": "string" }
+    ]
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "https://api.shell.com" },
+    { "key": "bearerToken", "value": "" },
+    { "key": "requestId", "value": "" },
+    { "key": "uid", "value": "" },
+    { "key": "sessionId", "value": "" }
+  ]
+}

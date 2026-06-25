@@ -1,0 +1,123 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ShellRecharge EV Platform API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Locations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all locations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.shell.com/ev/v2/locations"
+          },
+          "docs": "Get the list of all public Shell Recharge locations and their details."
+        },
+        {
+          "info": {
+            "name": "Get location by uid",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.shell.com/ev/v2/locations/{uid}"
+          },
+          "docs": "Get the details of a specific location by its unique identifier."
+        },
+        {
+          "info": {
+            "name": "Get nearby locations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.shell.com/ev/v2/locations/nearby"
+          },
+          "docs": "Get the list of locations near a latitude and longitude."
+        },
+        {
+          "info": {
+            "name": "Get location markers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.shell.com/ev/v2/locations/markers"
+          },
+          "docs": "Get the list of location markers for a set of map bounds and zoom level."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Charge Sessions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Start charge session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.shell.com/mobility-ev-api/v1/api/charge-sessions/start",
+            "body": {
+              "type": "json",
+              "data": "{\n  \"cardNumber\": \"<string>\",\n  \"evseId\": \"<string>\"\n}"
+            }
+          },
+          "docs": "Start a charging session on an EVSE using an EV charge card number and the EVSE ID."
+        },
+        {
+          "info": {
+            "name": "Retrieve charge session",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.shell.com/mobility-ev-api/v1/api/charge-sessions/retrieve/{sessionId}"
+          },
+          "docs": "Retrieve the current status and details of a charging session."
+        },
+        {
+          "info": {
+            "name": "Stop charge session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.shell.com/mobility-ev-api/v1/api/charge-sessions/stop/{sessionId}"
+          },
+          "docs": "Stop an active charging session."
+        },
+        {
+          "info": {
+            "name": "List active charge sessions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.shell.com/mobility-ev-api/v1/api/charge-sessions/active"
+          },
+          "docs": "Retrieve the list of active charging sessions for a user (by EMAId)."
+        }
+      ]
+    }
+  ]
+}

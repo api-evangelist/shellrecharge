@@ -1,0 +1,48 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: ShellRecharge
+providerId: shellrecharge
+created: '2026-06-21'
+modified: '2026-06-21'
+reconciled: false
+tags:
+- EV Charging
+- Electric Vehicles
+- Mobility
+- Charge Points
+- OCPI
+- Energy
+- Rate Limiting
+- Quotas
+- Throttling
+description: >-
+  ShellRecharge's EV-Platform APIs are partner-gated and secured with OAuth 2.0
+  client credentials. Specific public rate limits, quotas, and throttling
+  thresholds are not published on the Shell Developer Portal and are expected to
+  be governed by the partner's commercial agreement and per-environment (test vs
+  production) provisioning. Standard HTTP semantics apply, including 429 for
+  throttled requests. Specific limit values are not reconciled in this artifact.
+notes: >-
+  No public per-endpoint rate-limit values were documented at the time of
+  cataloging. Confirm RPM/quotas, burst limits, and Retry-After behavior with
+  Shell during partner onboarding and reconciliation.
+sources:
+- https://developer.shell.com/api-catalog
+- https://developer.shell.com/api-catalog/ev-public-locations/quick-start-guide
+responseCodes:
+  throttled: 429
+limits:
+- name: Per-Partner Request Limits
+  scope: account
+  metric: requests
+  limit: see partner agreement
+  notes: Governed by the partner's commercial agreement; not publicly documented.
+policies:
+- name: Authentication
+  description: All requests require an OAuth 2.0 bearer token (client credentials grant) plus API client credentials.
+- name: Backoff Strategy
+  description: Clients should implement exponential backoff with jitter and honor 429 / Retry-After responses.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

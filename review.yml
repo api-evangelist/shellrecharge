@@ -1,0 +1,103 @@
+aid: shellrecharge
+name: ShellRecharge
+review:
+  question: Does ShellRecharge expose self-serve, publicly documented APIs, and does it publish a public WebSocket API?
+  answer: false
+  date: '2026-06-21'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was authored. ShellRecharge's documented EV-Platform
+    APIs (EV Public Locations, EV Public Charge Sessions) and the OCPI 2.2.1
+    operator API are request/response REST (with a GraphQL option for OCPI).
+    No WebSocket, SSE, or other event-stream transport is documented, so there
+    is no event-driven surface to model.
+findings:
+  summary: |
+    ShellRecharge (formerly NewMotion) is the EV charging network and operator
+    platform owned by Shell. Its APIs are published on the Shell Developer
+    Portal (developer.shell.com), not on shellrecharge.com, and are
+    partner-gated: production access requires registration and approval, and
+    pricing is sales-led with no public, self-serve API tiers. The documented
+    products are the EV Public Locations API (REST, /ev/v2/locations...), the
+    EV Public Charge Sessions API (REST, /mobility-ev-api/v1/api/charge-sessions
+    /start|retrieve|stop|active), and an OCPI 2.2.1 operator API exposing the
+    Credentials, Locations, Sessions, Tariffs, Tokens, and CDR modules over
+    REST and GraphQL. All are secured with OAuth 2.0 client credentials. No
+    WebSocket (ws:// or wss://) endpoint is documented anywhere in the catalog.
+  ownership:
+    parent: Shell plc
+    note: >-
+      ShellRecharge was formed from NewMotion (acquired by Shell in 2017) and
+      Shell's other charging assets; the developer program runs under Shell's
+      corporate developer portal at developer.shell.com.
+  availability:
+    selfServeApiKeys: false
+    partnerGated: true
+    publicPricing: false
+    note: >-
+      Catalog and quick-start docs are publicly readable, but obtaining
+      credentials and production access requires a commercial / partner
+      agreement with Shell. Treat documented base URLs and endpoints as
+      accurate-as-published but gated.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://api.shell.com
+      documented: true
+      note: Production base host; api-test.shell.com is the documented test environment.
+    - protocol: GraphQL
+      scheme: https
+      documented: true
+      note: The OCPI API is documented as available over both REST and GraphQL.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented for locations, sessions, or OCPI as of the review date.
+  endpointsConfirmedRest:
+    - GET  https://api.shell.com/ev/v2/locations
+    - GET  https://api.shell.com/ev/v2/locations/{uid}
+    - GET  https://api.shell.com/ev/v2/locations/nearby
+    - GET  https://api.shell.com/ev/v2/locations/markers
+    - POST https://api.shell.com/mobility-ev-api/v1/api/charge-sessions/start
+    - GET  https://api.shell.com/mobility-ev-api/v1/api/charge-sessions/retrieve/{sessionId}
+    - POST https://api.shell.com/mobility-ev-api/v1/api/charge-sessions/stop/{sessionId}
+    - GET  https://api.shell.com/mobility-ev-api/v1/api/charge-sessions/active
+  ocpi:
+    standard: OCPI
+    version: 2.2.1
+    modules:
+      - Credentials & Registration
+      - Locations
+      - Sessions
+      - Tariffs
+      - Tokens
+      - CDRs
+    note: Follows the public OCPI 2.2.1 specification at https://evroaming.org.
+sources:
+  - url: https://developer.shell.com/api-catalog
+    type: APIReference
+    note: Shell Developer Portal EV API catalog (partner-gated for credentials).
+  - url: https://developer.shell.com/api-catalog/ev-public-locations/quick-start-guide
+    type: Documentation
+    note: EV Public Locations API - documents /ev/v2/locations endpoints and OAuth 2.0 client credentials.
+  - url: https://developer.shell.com/api-catalog/ev-public-charge-sessions/quick-start-guide
+    type: Documentation
+    note: EV Public Charge Sessions API - documents start/retrieve/stop/active endpoints and EVSE/EMAId/card identifiers.
+  - url: https://developer.shell.com/api-catalog/ev-private-locations-api/quick-start-guide
+    type: Documentation
+    note: OCPI 2.2.1 API - REST + GraphQL, modules for Credentials, Locations, Sessions, Tariffs, Tokens, CDRs.
+  - url: https://shellrecharge.com
+    type: Website
+    note: Marketing / solutions site; does not host the developer documentation.
+actions:
+  apisYmlUpdated: true
+  reason: |
+    Cataloged the documented EV-Platform and OCPI API surfaces accurately as
+    partner-gated REST (plus GraphQL for OCPI). reconciled was set to false on
+    plans, rate-limits, and finops because pricing and limits are sales-led and
+    not publicly published. No WebSocket surface exists, so no AsyncAPI was
+    authored.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
