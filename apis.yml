@@ -116,6 +116,10 @@ apis:
     tokens used to authorize charging, including real-time authorization of a
     token against an EVSE.
 common:
+- type: Authentication
+  url: authentication/shellrecharge-authentication.yml
+- type: OAuthScopes
+  url: scopes/shellrecharge-scopes.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/shellrecharge
 - type: Website
@@ -128,6 +132,8 @@ common:
   url: rate-limits/shellrecharge-rate-limits.yml
 - type: FinOps
   url: finops/shellrecharge-finops.yml
+- type: Blog
+  url: https://developer.shell.com/latest-updates
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
