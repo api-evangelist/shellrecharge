@@ -116,6 +116,8 @@ apis:
     tokens used to authorize charging, including real-time authorization of a
     token against an EVSE.
 common:
+- type: DomainSecurity
+  url: security/shellrecharge-domain-security.yml
 - type: Authentication
   url: authentication/shellrecharge-authentication.yml
 - type: OAuthScopes
