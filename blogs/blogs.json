@@ -1,0 +1,14 @@
+{
+  "repo": "shellrecharge",
+  "feeds": [
+    {
+      "source": "https://developer.shell.com/latest-updates",
+      "feed_url": "https://developer.shell.com/latest-updates",
+      "title": "Shell Developer Portal Latest Updates",
+      "saved": 0,
+      "error": "parse_failed"
+    }
+  ],
+  "fetched": "2026-07-11T11:43:46Z",
+  "post_count": 5
+}
