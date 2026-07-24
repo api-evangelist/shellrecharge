@@ -1,0 +1,78 @@
+openapi: 3.0.1
+info:
+  title: ShellRecharge EV Platform Locations Sessions API
+  description: Partner-facing EV charging APIs for the ShellRecharge (formerly NewMotion) network, published through the Shell Developer Portal. This document models the publicly documented endpoints of the EV Public Locations API and the EV Public Charge Sessions API. ShellRecharge also exposes an OCPI 2.2.1 API (Credentials, Locations, Sessions, Tariffs, Tokens, CDRs) over REST and GraphQL; the OCPI surface follows the public OCPI 2.2.1 specification at https://evroaming.org and is referenced but not exhaustively reproduced here. All endpoints are partner-gated and secured with OAuth 2.0 client credentials; production access requires registration and approval on the Shell Developer Portal. Only documented paths are included - no endpoints are fabricated.
+  termsOfService: https://developer.shell.com
+  contact:
+    name: Shell Developer Portal
+    url: https://developer.shell.com
+  version: '2.0'
+servers:
+- url: https://api.shell.com
+  description: Production (partner-gated; access via Shell Developer Portal)
+- url: https://api-test.shell.com
+  description: Test environment
+security:
+- OAuth2ClientCredentials: []
+tags:
+- name: Sessions
+paths:
+  /mobility-ev-api/v1/api/charge-sessions/start:
+    post:
+      operationId: startChargeSession
+      tags:
+      - Sessions
+      summary: Start a charging session.
+      description: Starts a charging session on an EVSE by supplying an EV charge card number and the unique EVSE ID of the connector at the location.
+      responses:
+        '200':
+          description: The started charging session.
+  /mobility-ev-api/v1/api/charge-sessions/retrieve/{sessionId}:
+    get:
+      operationId: retrieveChargeSession
+      tags:
+      - Sessions
+      summary: Retrieve the current status and details of a charging session.
+      parameters:
+      - name: sessionId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Charging session status and details.
+  /mobility-ev-api/v1/api/charge-sessions/stop/{sessionId}:
+    post:
+      operationId: stopChargeSession
+      tags:
+      - Sessions
+      summary: Stop an active charging session.
+      parameters:
+      - name: sessionId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: The stopped charging session.
+  /mobility-ev-api/v1/api/charge-sessions/active:
+    get:
+      operationId: listActiveChargeSessions
+      tags:
+      - Sessions
+      summary: Retrieve the list of active charging sessions for a user.
+      description: Returns the active charging sessions for a given set of EMAIds (EMobility Account Identifiers).
+      responses:
+        '200':
+          description: A list of active charging sessions.
+components:
+  securitySchemes:
+    OAuth2ClientCredentials:
+      type: oauth2
+      description: OAuth 2.0 client credentials grant. A bearer access token is obtained from the Shell SSO token endpoint and sent in the Authorization header; a separate API client id/secret pair is also required on functional requests.
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.shell.com/v1/oauth/token
+          scopes: {}
