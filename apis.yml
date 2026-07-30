@@ -8,7 +8,20 @@ description: ShellRecharge (formerly NewMotion) is Shell's EV charging network a
   stopping, and tracking charge sessions, and exchanging locations, sessions, tariffs,
   tokens, and CDRs over the OCPI 2.2.1 standard. The APIs are partner-gated and
   secured with OAuth 2.0 client credentials.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: paid
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Paid · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/shellrecharge.png
 tags:
 - EV Charging
 - Electric Vehicles
@@ -20,101 +33,50 @@ created: '2026-06-21'
 modified: '2026-06-21'
 specificationVersion: '0.19'
 apis:
-- aid: shellrecharge:shellrecharge-public-locations-api
-  name: ShellRecharge EV Public Locations API
-  tags:
-  - Locations
-  - Charge Points
-  - Stations
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+- aid: shellrecharge:shellrecharge-locations-api
+  name: ShellRecharge Locations API
+  description: The Locations API from ShellRecharge — 4 operation(s) for locations.
   humanURL: https://developer.shell.com/api-catalog/ev-public-locations/quick-start-guide
   baseURL: https://api.shell.com
+  tags:
+  - Locations
   properties:
-  - url: https://developer.shell.com/api-catalog/ev-public-locations/quick-start-guide
-    type: Documentation
-  - url: https://developer.shell.com/api-catalog/ev-public-locations
-    type: APIReference
-  - url: openapi/shellrecharge-openapi.yml
-    type: OpenAPI
-  description: Returns the list of public Shell Recharge EV charging locations -
-    including locations available through roaming partners - with EVSE status,
-    connector types, electrical specifications, opening hours, and tariff
-    metadata. Supports listing all locations, fetching a location by uid, nearby
-    search by latitude/longitude, and bounded map markers by zoom level.
-- aid: shellrecharge:shellrecharge-public-charge-sessions-api
-  name: ShellRecharge EV Public Charge Sessions API
+  - type: OpenAPI
+    url: openapi/shellrecharge-locations-api-openapi.yml
+  - type: Documentation
+    url: https://developer.shell.com/api-catalog/ev-public-locations/quick-start-guide
+  - type: APIReference
+    url: https://developer.shell.com/api-catalog/ev-public-locations
+  - type: Documentation
+    url: https://developer.shell.com/api-catalog/ev-public-charge-sessions/quick-start-guide
+  - type: APIReference
+    url: https://developer.shell.com/api-catalog/ev-public-charge-sessions
+  - type: Documentation
+    url: https://developer.shell.com/api-catalog/ev-private-locations-api/quick-start-guide
+  - type: APIReference
+    url: https://developer.shell.com/api-catalog
+- aid: shellrecharge:shellrecharge-sessions-api
+  name: ShellRecharge Sessions API
+  description: The Sessions API from ShellRecharge — 4 operation(s) for sessions.
+  humanURL: https://developer.shell.com/api-catalog/ev-public-locations/quick-start-guide
+  baseURL: https://api.shell.com
   tags:
   - Sessions
-  - Charging
-  - EVSE
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developer.shell.com/api-catalog/ev-public-charge-sessions/quick-start-guide
-  baseURL: https://api.shell.com
   properties:
-  - url: https://developer.shell.com/api-catalog/ev-public-charge-sessions/quick-start-guide
-    type: Documentation
-  - url: https://developer.shell.com/api-catalog/ev-public-charge-sessions
-    type: APIReference
-  - url: openapi/shellrecharge-openapi.yml
-    type: OpenAPI
-  description: Manages charging at public Shell Recharge locations. Partners can
-    start a session on an EVSE using an EV charge card number and EVSE ID,
-    retrieve a session's status by id, stop an active session, and list the
-    active sessions for a user (by EMAId).
-- aid: shellrecharge:shellrecharge-ocpi-api
-  name: ShellRecharge OCPI API
-  tags:
-  - OCPI
-  - Roaming
-  - Operator
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developer.shell.com/api-catalog/ev-private-locations-api/quick-start-guide
-  baseURL: https://api.shell.com
-  properties:
-  - url: https://developer.shell.com/api-catalog/ev-private-locations-api/quick-start-guide
-    type: Documentation
-  - url: https://developer.shell.com/api-catalog
-    type: APIReference
-  - url: openapi/shellrecharge-openapi.yml
-    type: OpenAPI
-  description: Open Charge Point Interface (OCPI 2.2.1) API for charge point
-    operators, organized around REST and GraphQL. Exposes the Credentials &
-    Registration, Locations, Sessions, Tariffs, Tokens, and CDR (Charge Detail
-    Record) modules for modernizing and roaming EV charging infrastructure.
-- aid: shellrecharge:shellrecharge-tariffs-api
-  name: ShellRecharge Tariffs API
-  tags:
-  - Tariffs
-  - Pricing
-  - OCPI
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developer.shell.com/api-catalog/ev-private-locations-api/quick-start-guide
-  baseURL: https://api.shell.com
-  properties:
-  - url: https://developer.shell.com/api-catalog/ev-private-locations-api/quick-start-guide
-    type: Documentation
-  - url: openapi/shellrecharge-openapi.yml
-    type: OpenAPI
-  description: OCPI Tariffs module for retrieving and managing the pricing
-    structures (energy, time, flat, and parking components) applied to charge
-    points across the Shell Recharge network and roaming partners.
-- aid: shellrecharge:shellrecharge-tokens-api
-  name: ShellRecharge Tokens API
-  tags:
-  - Tokens
-  - Cards
-  - Authorization
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developer.shell.com/api-catalog/ev-private-locations-api/quick-start-guide
-  baseURL: https://api.shell.com
-  properties:
-  - url: https://developer.shell.com/api-catalog/ev-private-locations-api/quick-start-guide
-    type: Documentation
-  - url: openapi/shellrecharge-openapi.yml
-    type: OpenAPI
-  description: OCPI Tokens module for managing the RFID charge cards and app
-    tokens used to authorize charging, including real-time authorization of a
-    token against an EVSE.
+  - type: OpenAPI
+    url: openapi/shellrecharge-sessions-api-openapi.yml
+  - type: Documentation
+    url: https://developer.shell.com/api-catalog/ev-public-locations/quick-start-guide
+  - type: APIReference
+    url: https://developer.shell.com/api-catalog/ev-public-locations
+  - type: Documentation
+    url: https://developer.shell.com/api-catalog/ev-public-charge-sessions/quick-start-guide
+  - type: APIReference
+    url: https://developer.shell.com/api-catalog/ev-public-charge-sessions
+  - type: Documentation
+    url: https://developer.shell.com/api-catalog/ev-private-locations-api/quick-start-guide
+  - type: APIReference
+    url: https://developer.shell.com/api-catalog
 common:
 - type: AgenticAccess
   url: agentic-access/shellrecharge-agentic-access.yml
