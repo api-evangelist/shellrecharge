@@ -1,0 +1,16 @@
+{
+  "provider": "shellrecharge",
+  "sources": [
+    "shellrecharge-locations-api-openapi.yml",
+    "shellrecharge-sessions-api-openapi.yml"
+  ],
+  "outputs": [
+    "shellrecharge-locations-api-openapi.yml",
+    "shellrecharge-sessions-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
