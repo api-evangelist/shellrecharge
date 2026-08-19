@@ -1,0 +1,117 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ShellRecharge EV Platform Locations API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://api.shell.com/v1/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Locations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the list of all public Shell Recharge locations and their details.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.shell.com/ev/v2/locations",
+            "headers": [
+              {
+                "name": "RequestId",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Returns all public Shell Recharge EV charging locations, including locations reachable through roaming partners, with EVSE status, connector types, electrical specifications, opening hours, and tariff metadata."
+        },
+        {
+          "info": {
+            "name": "Get the details of a specific location by its unique identifier.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.shell.com/ev/v2/locations/:uid",
+            "headers": [
+              {
+                "name": "RequestId",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "uid",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the location."
+              }
+            ]
+          },
+          "docs": "Get the details of a specific location by its unique identifier."
+        },
+        {
+          "info": {
+            "name": "Get the list of locations near a latitude and longitude.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.shell.com/ev/v2/locations/nearby",
+            "headers": [
+              {
+                "name": "RequestId",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "latitude",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "longitude",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get the list of locations near a latitude and longitude."
+        },
+        {
+          "info": {
+            "name": "Get the list of location markers for a set of map bounds and zoom level.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.shell.com/ev/v2/locations/markers",
+            "headers": [
+              {
+                "name": "RequestId",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Get the list of location markers for a set of map bounds and zoom level."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

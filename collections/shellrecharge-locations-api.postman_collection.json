@@ -1,0 +1,424 @@
+{
+  "item": [
+    {
+      "id": "7a4b05b9-246b-4634-b4c8-251d7fcced04",
+      "name": "Locations",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "90a2dd7c-d465-4959-9990-f617be772276",
+          "name": "Get the list of all public Shell Recharge locations and their details.",
+          "request": {
+            "name": "Get the list of all public Shell Recharge locations and their details.",
+            "description": {
+              "content": "Returns all public Shell Recharge EV charging locations, including locations reachable through roaming partners, with EVSE status, connector types, electrical specifications, opening hours, and tariff metadata.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ev",
+                "v2",
+                "locations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) UUID-formatted unique request identifier.",
+                "key": "RequestId",
+                "value": "<uuid>"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2b1bb69d-8e1d-4d94-9bbe-753aecf6f5cd",
+              "name": "A list of charging locations.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ev",
+                    "v2",
+                    "locations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) UUID-formatted unique request identifier.",
+                    "key": "RequestId",
+                    "value": "<uuid>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6fc1d555-4587-44fe-b238-cd2dbafdf221",
+          "name": "Get the details of a specific location by its unique identifier.",
+          "request": {
+            "name": "Get the details of a specific location by its unique identifier.",
+            "description": {},
+            "url": {
+              "path": [
+                "ev",
+                "v2",
+                "locations",
+                ":uid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "uid",
+                  "description": "(Required) Unique identifier of the location."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "RequestId",
+                "value": "<uuid>"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5712f53b-1f68-40c7-b25d-283323355a56",
+              "name": "Location details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ev",
+                    "v2",
+                    "locations",
+                    ":uid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uid",
+                      "description": "(Required) Unique identifier of the location."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "RequestId",
+                    "value": "<uuid>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "85b19455-d378-4ef2-9947-95120c89ab16",
+          "name": "Get the list of locations near a latitude and longitude.",
+          "request": {
+            "name": "Get the list of locations near a latitude and longitude.",
+            "description": {},
+            "url": {
+              "path": [
+                "ev",
+                "v2",
+                "locations",
+                "nearby"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "latitude",
+                  "value": "<double>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "longitude",
+                  "value": "<double>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "RequestId",
+                "value": "<uuid>"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8fda97a7-3372-4ab9-9860-0afebb25aaaf",
+              "name": "Nearby locations.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ev",
+                    "v2",
+                    "locations",
+                    "nearby"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "latitude",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "longitude",
+                      "value": "<double>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "RequestId",
+                    "value": "<uuid>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cd4f4651-6341-4fce-a82b-cf0dd55dd9c6",
+          "name": "Get the list of location markers for a set of map bounds and zoom level.",
+          "request": {
+            "name": "Get the list of location markers for a set of map bounds and zoom level.",
+            "description": {},
+            "url": {
+              "path": [
+                "ev",
+                "v2",
+                "locations",
+                "markers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ",
+                "key": "RequestId",
+                "value": "<uuid>"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "881f0f08-92ec-46fe-b818-f6e4464ed5eb",
+              "name": "Location markers for the requested bounds.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ev",
+                    "v2",
+                    "locations",
+                    "markers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "RequestId",
+                    "value": "<uuid>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.shell.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.shell.com/v1/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "7be5bd2d-810c-4b88-bf09-6037b5eee984",
+    "name": "ShellRecharge EV Platform Locations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Partner-facing EV charging APIs for the ShellRecharge (formerly NewMotion) network, published through the Shell Developer Portal. This document models the publicly documented endpoints of the EV Public Locations API and the EV Public Charge Sessions API. ShellRecharge also exposes an OCPI 2.2.1 API (Credentials, Locations, Sessions, Tariffs, Tokens, CDRs) over REST and GraphQL; the OCPI surface follows the public OCPI 2.2.1 specification at https://evroaming.org and is referenced but not exhaustively reproduced here. All endpoints are partner-gated and secured with OAuth 2.0 client credentials; production access requires registration and approval on the Shell Developer Portal. Only documented paths are included - no endpoints are fabricated.\n\nContact Support:\n Name: Shell Developer Portal",
+      "type": "text/plain"
+    }
+  }
+}

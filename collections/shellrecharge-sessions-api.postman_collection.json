@@ -1,0 +1,379 @@
+{
+  "item": [
+    {
+      "id": "7b5b7a36-f638-4bd5-9fde-bb9d5aeabcc9",
+      "name": "Sessions",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e98528e0-a2c8-49c2-88db-0a29365a0b42",
+          "name": "Start a charging session.",
+          "request": {
+            "name": "Start a charging session.",
+            "description": {
+              "content": "Starts a charging session on an EVSE by supplying an EV charge card number and the unique EVSE ID of the connector at the location.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mobility-ev-api",
+                "v1",
+                "api",
+                "charge-sessions",
+                "start"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "52ffba56-5134-462c-a68c-e2559df37544",
+              "name": "The started charging session.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mobility-ev-api",
+                    "v1",
+                    "api",
+                    "charge-sessions",
+                    "start"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a2941a63-9ae0-4bd4-ad92-f92ab4f218db",
+          "name": "Retrieve the current status and details of a charging session.",
+          "request": {
+            "name": "Retrieve the current status and details of a charging session.",
+            "description": {},
+            "url": {
+              "path": [
+                "mobility-ev-api",
+                "v1",
+                "api",
+                "charge-sessions",
+                "retrieve",
+                ":sessionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sessionId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "40b7338f-4d6b-4dd6-8c51-616380859522",
+              "name": "Charging session status and details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mobility-ev-api",
+                    "v1",
+                    "api",
+                    "charge-sessions",
+                    "retrieve",
+                    ":sessionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sessionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "671bf3fd-e758-46f3-85b5-2012e6780640",
+          "name": "Stop an active charging session.",
+          "request": {
+            "name": "Stop an active charging session.",
+            "description": {},
+            "url": {
+              "path": [
+                "mobility-ev-api",
+                "v1",
+                "api",
+                "charge-sessions",
+                "stop",
+                ":sessionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sessionId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b908c6ac-890f-45f7-ad83-fa5a047cda9b",
+              "name": "The stopped charging session.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mobility-ev-api",
+                    "v1",
+                    "api",
+                    "charge-sessions",
+                    "stop",
+                    ":sessionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sessionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c6d5f33a-3df6-4731-a21f-0eb7dd5f3881",
+          "name": "Retrieve the list of active charging sessions for a user.",
+          "request": {
+            "name": "Retrieve the list of active charging sessions for a user.",
+            "description": {
+              "content": "Returns the active charging sessions for a given set of EMAIds (EMobility Account Identifiers).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mobility-ev-api",
+                "v1",
+                "api",
+                "charge-sessions",
+                "active"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e854be18-3153-40bf-a703-2b44281bf652",
+              "name": "A list of active charging sessions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mobility-ev-api",
+                    "v1",
+                    "api",
+                    "charge-sessions",
+                    "active"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.shell.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.shell.com/v1/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "7e221130-aa12-40e2-a1ae-440e4351f19b",
+    "name": "ShellRecharge EV Platform Locations Sessions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Partner-facing EV charging APIs for the ShellRecharge (formerly NewMotion) network, published through the Shell Developer Portal. This document models the publicly documented endpoints of the EV Public Locations API and the EV Public Charge Sessions API. ShellRecharge also exposes an OCPI 2.2.1 API (Credentials, Locations, Sessions, Tariffs, Tokens, CDRs) over REST and GraphQL; the OCPI surface follows the public OCPI 2.2.1 specification at https://evroaming.org and is referenced but not exhaustively reproduced here. All endpoints are partner-gated and secured with OAuth 2.0 client credentials; production access requires registration and approval on the Shell Developer Portal. Only documented paths are included - no endpoints are fabricated.\n\nContact Support:\n Name: Shell Developer Portal",
+      "type": "text/plain"
+    }
+  }
+}

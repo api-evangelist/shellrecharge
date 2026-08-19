@@ -1,0 +1,87 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ShellRecharge EV Platform Locations Sessions API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://api.shell.com/v1/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Sessions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Start a charging session.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.shell.com/mobility-ev-api/v1/api/charge-sessions/start"
+          },
+          "docs": "Starts a charging session on an EVSE by supplying an EV charge card number and the unique EVSE ID of the connector at the location."
+        },
+        {
+          "info": {
+            "name": "Retrieve the current status and details of a charging session.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.shell.com/mobility-ev-api/v1/api/charge-sessions/retrieve/:sessionId",
+            "params": [
+              {
+                "name": "sessionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve the current status and details of a charging session."
+        },
+        {
+          "info": {
+            "name": "Stop an active charging session.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.shell.com/mobility-ev-api/v1/api/charge-sessions/stop/:sessionId",
+            "params": [
+              {
+                "name": "sessionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Stop an active charging session."
+        },
+        {
+          "info": {
+            "name": "Retrieve the list of active charging sessions for a user.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.shell.com/mobility-ev-api/v1/api/charge-sessions/active"
+          },
+          "docs": "Returns the active charging sessions for a given set of EMAIds (EMobility Account Identifiers)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
