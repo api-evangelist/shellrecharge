@@ -90,6 +90,9 @@ apis:
   - type: APIReference
     url: https://developer.shell.com/api-catalog
 common:
+- type: CapabilityMap
+  url: capabilities/shellrecharge-capability-edges.yml
+  name: ShellRecharge Business Capability Map
 - type: AgenticAccess
   url: agentic-access/shellrecharge-agentic-access.yml
 - type: DomainSecurity
