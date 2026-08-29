@@ -8,6 +8,18 @@ description: ShellRecharge (formerly NewMotion) is Shell's EV charging network a
   stopping, and tracking charge sessions, and exchanging locations, sessions, tariffs,
   tokens, and CDRs over the OCPI 2.2.1 standard. The APIs are partner-gated and
   secured with OAuth 2.0 client credentials.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: paid
   onboarding: self-serve
