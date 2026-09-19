@@ -52,6 +52,8 @@ apis:
   humanURL: https://developer.shell.com/api-catalog/ev-public-locations/quick-start-guide
   baseURL: https://api.shell.com
   tags:
+  - Location
+  tags_raw:
   - Locations
   properties:
   - type: OpenAPI
