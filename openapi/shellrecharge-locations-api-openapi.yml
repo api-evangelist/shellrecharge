@@ -1,7 +1,7 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   title: ShellRecharge EV Platform Locations API
-  description: Partner-facing EV charging APIs for the ShellRecharge (formerly NewMotion) network, published through the Shell Developer Portal. This document models the publicly documented endpoints of the EV Public Locations API and the EV Public Charge Sessions API. ShellRecharge also exposes an OCPI 2.2.1 API (Credentials, Locations, Sessions, Tariffs, Tokens, CDRs) over REST and GraphQL; the OCPI surface follows the public OCPI 2.2.1 specification at https://evroaming.org and is referenced but not exhaustively reproduced here. All endpoints are partner-gated and secured with OAuth 2.0 client credentials; production access requires registration and approval on the Shell Developer Portal. Only documented paths are included - no endpoints are fabricated.
+  description: Partner-facing EV charging APIs for the ShellRecharge (formerly NewMotion) network, published through the Shell Developer Portal.
   termsOfService: https://developer.shell.com
   contact:
     name: Shell Developer Portal
@@ -22,7 +22,7 @@ paths:
       operationId: listLocations
       tags:
       - Locations
-      summary: Get the list of all public Shell Recharge locations and their details.
+      summary: Get the list of all public Shell Recharge locations and their details
       description: Returns all public Shell Recharge EV charging locations, including locations reachable through roaming partners, with EVSE status, connector types, electrical specifications, opening hours, and tariff metadata.
       parameters:
       - name: RequestId
@@ -40,7 +40,7 @@ paths:
       operationId: getLocation
       tags:
       - Locations
-      summary: Get the details of a specific location by its unique identifier.
+      summary: Get the details of a specific location by its unique identifier
       parameters:
       - name: uid
         in: path
@@ -62,7 +62,7 @@ paths:
       operationId: getNearbyLocations
       tags:
       - Locations
-      summary: Get the list of locations near a latitude and longitude.
+      summary: Get the list of locations near a latitude and longitude
       parameters:
       - name: latitude
         in: query
@@ -90,7 +90,7 @@ paths:
       operationId: getLocationMarkers
       tags:
       - Locations
-      summary: Get the list of location markers for a set of map bounds and zoom level.
+      summary: Get the list of location markers for a set of map bounds and zoom level
       parameters:
       - name: RequestId
         in: header
