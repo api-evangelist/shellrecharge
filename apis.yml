@@ -121,3 +121,5 @@ common:
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
+x-parent: shell
+x-relationship: subsidiary
