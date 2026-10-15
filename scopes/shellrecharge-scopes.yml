@@ -1,13 +1,17 @@
-generated: '2026-07-11'
-method: derived
-source: openapi/shellrecharge-openapi.yml
-docs: https://developer.shell.com/docs/authentication-authorisation
-note: Shell Developer APIs use the OAuth 2.0 client credentials grant with no published
-  scopes; access is governed by partner credentials issued per app by the Shell API
-  team (https://developer.shell.com/docs/authentication-authorisation).
+generated: '2026-10-14'
+method: none
+source: openapi/shellrecharge-locations-api-openapi.yml, openapi/shellrecharge-sessions-api-openapi.yml
 schemes:
 - name: OAuth2ClientCredentials
-  source: openapi/shellrecharge-openapi.yml
+  source: openapi/shellrecharge-locations-api-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.shell.com/v1/oauth/token
+  description: OAuth 2.0 client credentials grant. A bearer access token is obtained from the
+    Shell SSO token endpoint and sent in the Authorization header; a separate API client id/secret
+    pair is also required on functional requests.
+- name: OAuth2ClientCredentials
+  source: openapi/shellrecharge-sessions-api-openapi.yml
   flows:
   - flow: clientCredentials
     tokenUrl: https://api.shell.com/v1/oauth/token
@@ -15,3 +19,5 @@ schemes:
     Shell SSO token endpoint and sent in the Authorization header; a separate API client id/secret
     pair is also required on functional requests.
 scopes: []
+note: The OAuth2 security scheme(s) in the OpenAPI declare no scopes, and no security requirement
+  references one.
